@@ -52,7 +52,7 @@ class Folder:
     def process_file(self, filename: str) -> None:
         package_pattern = re.compile("^\s*package\s+([\w:]+);")
         sub_pattern = re.compile("^\s*sub\s+(\w+)[\s{$]")
-        with open(filename) as file:
+        with open(filename, 'r', encoding='utf-8', errors='ignore') as file:
             module = None
             for cnt, line in enumerate(file):
                 res = re.search(package_pattern, line)
